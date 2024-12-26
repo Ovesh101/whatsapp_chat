@@ -24,8 +24,6 @@ const MessageInput = () => {
       await addMessage(message.senderId, message.receiverId, message.text);
 
 
-      toast.success("Message sent!"); // Display success toast
-
       setNewMessage(""); // Clear the input field
     }
   };

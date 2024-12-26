@@ -65,6 +65,10 @@ const ContactList = () => {
   };
 
   const handleSelectContact = (email) => {
+ 
+
+
+    
     dispatch({ type: "SELECT_CONTACT", payload: email });
   };
 
@@ -91,7 +95,7 @@ const ContactList = () => {
       <ul className="space-y-4 overflow-y-auto">
         {filteredContacts.length > 0 ? (
           filteredContacts.map((contact) => {
-            const name = localStorage.getItem(contact.email) || contact.email;
+            const name = localStorage.getItem(contact.email) || contact.email.slice(0 , 5);
             const firstLetter = contact.email[0].toUpperCase();
 
             // Check if the contact is selected
@@ -127,7 +131,7 @@ const ContactList = () => {
               {user.email[0].toUpperCase()}
             </div>
             <span className="text-white">
-              {localStorage.getItem(user.email)}
+              {localStorage.getItem(user.email) || user.email}
             </span>
           </div>
           <button

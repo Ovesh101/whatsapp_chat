@@ -30,18 +30,25 @@ const MessageInput = () => {
     }
   };
 
+  if (!state.selectedContact) {
+    // Show this message if no contact is selected
+    return (
+  <></>
+    );
+  }
+
   return (
-    <div className="bg-white p-4 flex items-center">
+    <div className="bg-[#202C33] p-4  flex items-center">
       <input
         type="text"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
         placeholder="Type a message"
-        className="flex-1 p-2 border rounded-full mr-4"
+        className="flex-1 p-2  bg-[#2A3942] focus:outline-none rounded-md mr-4"
       />
       <button
         onClick={sendMessage}
-        className="bg-green-500 text-white py-2 px-4 rounded-full"
+        className="bg-green-500 text-white py-2 px-4 rounded-md"
       >
         Send
       </button>

@@ -31,6 +31,11 @@ The application includes real-time messaging using InstantDB and offline capabil
 4. Message Storage:
    - Real-time message storage and retrieval using InstantDB.
    - Offline data storage using IndexedDB, ensuring chat functionality even without an internet connection.
+    
+5. Authentication:
+    - Handles user authentication using InstantDB's email-based authentication with the "magic code" feature.
+   - Allows users to log in with their email address and receive a one-time code for secure access.
+   - Integrates with InstantDB Auth API to validate and manage session tokens.
 
 ## Technical Requirements Fulfilled:
   ### React Concepts:

@@ -31,6 +31,20 @@ The application includes real-time messaging using InstantDB and offline capabil
 4. Message Storage:
    - Real-time message storage and retrieval using InstantDB.
    - Offline data storage using IndexedDB, ensuring chat functionality even without an internet connection.
+   - Logic is written at /src/Hooks/useIntantDB.js
+     ```
+     const syncOfflineMessages = async () => {
+        const offlineMessages = await getMessagesFromIndexedDB();
+        offlineMessages.forEach((message) => {
+      db.transact(
+        db.tx.messages[id()].update(message)
+      );
+        });
+        offlineMessages.forEach(async (message) => {
+      await deleteMessageFromIndexedDB(message.id);
+        });
+      };
+     ```
     
 5. Authentication:
     - Handles user authentication using InstantDB's email-based authentication with the "magic code" feature.
@@ -39,7 +53,6 @@ The application includes real-time messaging using InstantDB and offline capabil
 
 ## Technical Requirements Fulfilled:
   ### React Concepts:
-  - Hooks Used:
   - useState: Manage states like selected contact and message input.
   - useEffect: Fetch and sync data with InstantDB and IndexedDB.
   - useMemo: Optimize performance by memoizing computed data like filtered contacts.

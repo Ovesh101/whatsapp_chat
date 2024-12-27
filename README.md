@@ -1,5 +1,5 @@
 # WhatsApp Web-Like Chat Application
-The goal of this project was to create a WhatsApp Web-like chat application using React.js. 
+This project aimed to create a WhatsApp Web-like chat application using React.js. 
 The application includes real-time messaging using InstantDB and offline capabilities via IndexedDB.
 
 ## Table of Contents
@@ -15,7 +15,7 @@ The application includes real-time messaging using InstantDB and offline capabil
 
 9. [Deployment](#deployment)
     
-###Features:
+### Features:
 1. Contact List:
    - Displays a list of contacts on the left side of the application.
    - Clicking on a contact opens their chat history in the chat window.
@@ -32,8 +32,8 @@ The application includes real-time messaging using InstantDB and offline capabil
    - Real-time message storage and retrieval using InstantDB.
    - Offline data storage using IndexedDB, ensuring chat functionality even without an internet connection.
 
-##Technical Requirements Fulfilled
-  ###React Concepts:
+## Technical Requirements Fulfilled:
+  ### React Concepts:
   - Hooks Used:
   - useState: Manage states like selected contact and message input.
   - useEffect: Fetch and sync data with InstantDB and IndexedDB.
@@ -44,7 +44,7 @@ The application includes real-time messaging using InstantDB and offline capabil
   - Context API:
     - Used for global state management of contacts and messages.
       
-  ###Components:
+  ### Components:
   1. ContactList:
    - Displays a list of contacts.
    - Allows selection of a contact to view their chat history.
@@ -88,14 +88,14 @@ Ensure that you have the following installed on your system:
   ```
 3: **Start the Application**: 
   ```
-    npm start
+    npm run dev
   ```
 
 ### Design Choices
 
 - **Component-Based Architecture**: The application is divided into reusable components, such as `ContactList`, `ChatWindow`, `Message`, `MessageInput`, and `Login`. This modular design enhances code maintainability and reusability.
 - **Real-Time Data Management**: InstantDB is used for real-time message storage and retrieval, ensuring seamless synchronization between users.
-- **Offline Support**: IndexedDB is utilized to store chat data locally, providing offline access to messages and ensuring continuity in case of network disruptions.
+- **Offline Support**: IndexedDB stores chat data locally, providing offline access to messages and ensuring continuity in case of network disruptions.
 - **Email-Based Authentication**: The login functionality is implemented using InstantDB's Magic Code feature for secure and seamless user authentication.
 - **Responsive Design**: Tailored layouts and dynamic resizing ensure the application provides an optimal experience across various screen sizes.
 
@@ -124,7 +124,7 @@ Ensure that you have the following installed on your system:
 
 #### 2. Context
 - **User Context**:
-  - Created for managing user authentication globally across the application.
+  - Created to manage user authentication globally across the application.
   - Stores user login information, ensuring consistent access to authentication status in all components.
 
 - **Message Context**:

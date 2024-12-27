@@ -8,8 +8,8 @@ import { UserProvider } from "./context/UserContext";
 import Dashboard from "./components/Dashboard";
 
 const ChatLayout = () => (
-  <div className="flex-1 h-screen flex flex-col">
-    <div className="flex-1 overflow-y-auto bg-[#ece5dd]">
+  <div className="flex-1  h-screen flex flex-col">
+    <div className="flex-1 bg-[#0B141A] overflow-y-auto ">
       <ChatWindow />
     </div>
     <MessageInput />

@@ -97,7 +97,7 @@ Ensure that you have the following installed on your system:
 
    ```bash
    git clone https://github.com/Ovesh101/whatsapp_chat.git
-   cd your-repo-name
+   cd whatsapp_chat
    npm install
     ```
 2: **Set Up Environment Variables**

@@ -36,7 +36,7 @@ const ChatWindow = () => {
   return (
     <>
   
-    <div className="flex  flex-col bg-[#0B141A]">
+    <div className="flex  flex-col h-screen bg-[#0B141A]">
       {/* Header */}
       <div className="bg-[#202C33] text-white px-4 py-2 shadow-md flex justify-between items-center fixed w-full">
         <div className="flex items-center">

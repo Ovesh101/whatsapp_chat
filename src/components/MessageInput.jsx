@@ -36,13 +36,13 @@ const MessageInput = () => {
   }
 
   return (
-    <div className="bg-[#202C33] p-4  flex items-center">
+    <div className=" p-4  flex items-center">
       <input
         type="text"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
         placeholder="Type a message"
-        className="flex-1 p-2  bg-[#2A3942] focus:outline-none rounded-md mr-4"
+        className="flex-1 p-2 text-white  bg-[#2A3942] focus:outline-none rounded-md mr-4"
       />
       <button
         onClick={sendMessage}

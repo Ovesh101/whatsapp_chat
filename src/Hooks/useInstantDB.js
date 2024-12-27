@@ -96,6 +96,9 @@ const useInstantDB = () => {
   const checkOnlineStatus = () => {
     if (navigator.onLine) {
       syncOfflineMessages(); // Sync messages when back online
+    }else{
+        console.log("not online");
+        
     }
   };
 

@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
-import ChatWindow from "./ChatWindow";
 import ContactList from "./ContactList";
-import MessageInput from "./MessageInput";
 
 const Dashboard = () => {
   const { user } = useUser();
+
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Track if the user is on mobile
 
   useEffect(() => {
     if (!user) {
@@ -17,23 +16,39 @@ const Dashboard = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const newIsMobile = window.innerWidth <= 768; // Adjust as per your breakpoint
+      if (newIsMobile !== isMobile) {
+        setIsMobile(newIsMobile); // Update state only when it changes
+        console.log(newIsMobile ? "Mobile loaded" : "Desktop loaded");
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMobile]); // Add isMobile as a dependency
+
+  useEffect(() => {
+    if (isMobile) {
+      navigate("/dashboard/chat_window");
+    }
+  }, [isMobile, navigate]);
+
   return (
     <div className="flex  h-screen bg-[#dfe3e6]">
       {/* Sidebar: Contact List */}
       <div className=" sm:w-1/4 w-full bg-white shadow-lg">
-        <ContactList />
+        <ContactList isMobile={isMobile} />
       </div>
-
-      {/* Main Chat Area */}
-      
-        <div className="flex-1 flex  flex-col">
-          <div className="flex-1 overflow-y-auto bg-[#ece5dd]">
-            <ChatWindow  />
-          </div>
-
-          <MessageInput  />
+      {!isMobile && (
+        <div className="w-full bg-[#222E35]  h-full">
+          <Outlet /> {/* This will render nested routes */}
         </div>
-   
+      )}
+
+      
     </div>
   );
 };

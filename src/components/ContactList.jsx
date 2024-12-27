@@ -5,7 +5,7 @@ import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const ContactList = () => {
+const ContactList = ({ isMobile }) => {
   const { state, dispatch } = useMessageContext();
   const { messages } = useInstantDB();
   const { users, user, signOut } = useUser(); // Assuming you have a logout function in UserContext
@@ -64,11 +64,11 @@ const ContactList = () => {
     );
   };
 
-  const handleSelectContact = (email) => {
- 
+  const handleSelectContact = (email, id) => {
+    if (isMobile) {
+      navigate("/mobile_chat");
+    }
 
-
-    
     dispatch({ type: "SELECT_CONTACT", payload: email });
   };
 
@@ -95,7 +95,8 @@ const ContactList = () => {
       <ul className="space-y-4 overflow-y-auto">
         {filteredContacts.length > 0 ? (
           filteredContacts.map((contact) => {
-            const name = localStorage.getItem(contact.email) || contact.email.slice(0 , 5);
+            const name =
+              localStorage.getItem(contact.email) || contact.email.slice(0, 5);
             const firstLetter = contact.email[0].toUpperCase();
 
             // Check if the contact is selected
@@ -107,7 +108,7 @@ const ContactList = () => {
                 className={`flex items-center p-3 rounded-md cursor-pointer ${
                   isActive ? "bg-[#2A3942]" : "hover:bg-[#202C33]"
                 }`}
-                onClick={() => handleSelectContact(contact.email)}
+                onClick={() => handleSelectContact(contact.email, contact.id)}
               >
                 <div className="w-10 h-10 flex items-center justify-center bg-green-500 rounded-full text-lg text-white mr-4">
                   {firstLetter}

@@ -1,14 +1,21 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { MessageProvider } from "./context/MessageContext";
 import Login from "./components/Login";
-
 import ChatWindow from "./components/ChatWindow";
 import MessageInput from "./components/MessageInput";
 import { UserProvider } from "./context/UserContext";
 import Dashboard from "./components/Dashboard";
 
-// Create routes using createBrowserRouter
+const ChatLayout = () => (
+  <div className="flex-1 h-screen flex flex-col">
+    <div className="flex-1 overflow-y-auto bg-[#ece5dd]">
+      <ChatWindow />
+    </div>
+    <MessageInput />
+  </div>
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,9 +23,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <Dashboard />, // Dashboard serves as the main layout
+    children: [
+      
+      {
+        path: "chat_window", // Nested route for Chat
+        element: (
+          <ChatLayout />
+        ),
+      },
+    ],
   },
-
+  {
+    path: "/mobile_chat", // Nested route for Chat
+    element: (
+      <ChatLayout />
+    ),
+  },
 ]);
 
 const App = () => {

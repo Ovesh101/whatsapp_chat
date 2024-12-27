@@ -75,7 +75,7 @@ const useInstantDB = () => {
 
   const messages = data?.messages || [];
 
-  // Sync offline messages from IndexedDB to InstantDB when the app is online
+
   const syncOfflineMessages = async () => {
     const offlineMessages = await getMessagesFromIndexedDB();
 

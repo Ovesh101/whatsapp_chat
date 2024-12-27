@@ -18,17 +18,26 @@ const Dashboard = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const newIsMobile = window.innerWidth <= 768; // Adjust as per your breakpoint
+      const isMobileWidth = window.innerWidth <= 768; // Check based on screen width
+      const isMobileNavigator = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
+        navigator.userAgent
+      ); // Check based on navigator.userAgent
+  
+      const newIsMobile = isMobileWidth || isMobileNavigator; // Consider either condition to detect mobile
+  
       if (newIsMobile !== isMobile) {
         setIsMobile(newIsMobile); // Update state only when it changes
-        console.log(newIsMobile ? "Mobile loaded" : "Desktop loaded");
+        console.log(
+          `Width: ${window.innerWidth}, Navigator is mobile: ${isMobileNavigator}, State updated: ${newIsMobile}`
+        );
       }
     };
-
+  
     handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isMobile]); // Add isMobile as a dependency
+  
 
   useEffect(() => {
     if (isMobile) {

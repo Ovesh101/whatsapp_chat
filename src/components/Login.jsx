@@ -22,7 +22,7 @@ const Login = () => {
 
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex p-4 justify-center items-center h-screen">
       {!sentEmail ? (
         <Email setSentEmail={setSentEmail} />
       ) : (

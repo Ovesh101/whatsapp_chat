@@ -67,6 +67,8 @@ const ContactList = ({ isMobile }) => {
   const handleSelectContact = (email, id) => {
     if (isMobile) {
       navigate("/mobile_chat");
+    }else{
+      navigate("/dashboard/chat_window")
     }
 
     dispatch({ type: "SELECT_CONTACT", payload: email });

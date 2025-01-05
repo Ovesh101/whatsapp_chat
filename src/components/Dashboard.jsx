@@ -40,7 +40,7 @@ const Dashboard = () => {
   
 
   useEffect(() => {
-    if (isMobile) {
+    if (!isMobile) {
       navigate("/dashboard/chat_window");
     }
   }, [isMobile, navigate]);

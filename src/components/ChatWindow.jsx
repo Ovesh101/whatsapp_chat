@@ -43,10 +43,10 @@ const ChatWindow = () => {
           <div className="w-10 h-10 flex items-center justify-center bg-green-500 rounded-full text-lg text-white mr-4">
             {localStorage.getItem(state.selectedContact)
               ? localStorage.getItem(state.selectedContact)[0]
-              : state.selectedContact.slice(0 , 4)[0]}
+              : state.selectedContact.slice(0 , 5)[0]}
           </div>
           <h3 className="text-lg font-semibold truncate">
-            {localStorage.getItem(state.selectedContact) || state.selectedContact.slice(0 , 4)}
+            {localStorage.getItem(state.selectedContact) || state.selectedContact.slice(0 , 5)}
           </h3>
         </div>
 

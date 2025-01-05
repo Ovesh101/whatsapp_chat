@@ -67,7 +67,8 @@ const ContactList = ({ isMobile }) => {
   const handleSelectContact = (email, id) => {
     if (isMobile) {
       navigate("/mobile_chat");
-    }else{
+    }
+    else{
       navigate("/dashboard/chat_window")
     }
 
@@ -76,6 +77,7 @@ const ContactList = ({ isMobile }) => {
 
   const handleLogout = async () => {
     await signOut(); // Call the signOut function to log out
+    state.selectedContact = null
     toast.success("Logged out successfully!"); // Display success toast message
     navigate("/"); // Redirect to login page
   };

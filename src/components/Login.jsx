@@ -101,8 +101,10 @@ const MagicCode = ({ sentEmail }) => {
       const { user } = await db.auth.signInWithMagicCode({ email: sentEmail, code: code });
       setUser(user)
       navigate("/dashboard")
+      toast.success("Successfully Logged in...")
       
     } catch (error) {
+      toast.error("Please Enter Correct Code...")
       console.error("Error signing in:", error);
     }
   };

@@ -39,11 +39,11 @@ const Dashboard = () => {
   }, [isMobile]); // Add isMobile as a dependency
   
 
-  useEffect(() => {
-    if (isMobile) {
-      navigate("/dashboard/chat_window");
-    }
-  }, [isMobile, navigate]);
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     navigate("/dashboard/chat_window");
+  //   }
+  // }, [isMobile, navigate]);
 
   return (
     <div className="flex  h-screen bg-[#dfe3e6]">

@@ -99,11 +99,7 @@ Ensure that you have the following installed on your system:
    git clone https://github.com/Ovesh101/whatsapp_chat.git
    cd whatsapp_chat
    npm install
-    ```
-2: **Set Up Environment Variables**
-  ```
-    VITE_API_KEY=1f9655e4-9b03-4e95-ac0f-6df9ea7d765e
-  ```
+    ```
 3: **Start the Application**: 
   ```
     npm run dev
